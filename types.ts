@@ -67,6 +67,12 @@ export type User = Node & {
   username: Scalars['String'];
 };
 
+export type Sadasdas = {
+  __typename?: 'sadasdas';
+  id: Scalars['ID'];
+  name: Scalars['String'];
+};
+
 
 
 export type ResolverTypeWrapper<T> = Promise<T> | T;
@@ -147,6 +153,7 @@ export type ResolversTypes = {
   SearchResult: ResolversTypes['Chat'] | ResolversTypes['ChatMessage'] | ResolversTypes['User'];
   String: ResolverTypeWrapper<Scalars['String']>;
   User: ResolverTypeWrapper<User>;
+  sadasdas: ResolverTypeWrapper<Sadasdas>;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
@@ -161,6 +168,7 @@ export type ResolversParentTypes = {
   SearchResult: ResolversParentTypes['Chat'] | ResolversParentTypes['ChatMessage'] | ResolversParentTypes['User'];
   String: Scalars['String'];
   User: User;
+  sadasdas: Sadasdas;
 };
 
 export type ChatResolvers<ContextType = any, ParentType extends ResolversParentTypes['Chat'] = ResolversParentTypes['Chat']> = {
@@ -207,6 +215,12 @@ export type UserResolvers<ContextType = any, ParentType extends ResolversParentT
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export type SadasdasResolvers<ContextType = any, ParentType extends ResolversParentTypes['sadasdas'] = ResolversParentTypes['sadasdas']> = {
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type Resolvers<ContextType = any> = {
   Chat?: ChatResolvers<ContextType>;
   ChatMessage?: ChatMessageResolvers<ContextType>;
@@ -215,5 +229,6 @@ export type Resolvers<ContextType = any> = {
   Query?: QueryResolvers<ContextType>;
   SearchResult?: SearchResultResolvers<ContextType>;
   User?: UserResolvers<ContextType>;
+  sadasdas?: SadasdasResolvers<ContextType>;
 };
 
